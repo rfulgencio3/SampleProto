@@ -1,0 +1,44 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "SampleProto.gRPC";
+package person;
+
+service PersonService {
+  rpc AddPerson (AddPersonRequest) returns (AddPersonReply);
+  rpc GetPersonById (GetPersonByIdRequest) returns (GetPersonByIdReply);
+}
+
+message AddPersonRequest {
+  string name = 1;
+  string surname = 2;
+  string address = 3;
+  string zipcode = 4;
+  string state = 5;
+  string country = 6;
+  string email = 7;
+  string birthDate = 8;
+}
+
+message AddPersonReply {
+  string message = 1;
+}
+
+message GetPersonByIdRequest {
+  string id = 1;
+}
+
+message GetPersonByIdReply {
+  PersonMessage person = 1;
+}
+
+message PersonMessage {
+  string id = 1;
+  string name = 2;
+  string surname = 3;
+  string address = 4;
+  string zipcode = 5; 
+  string state = 6;
+  string country = 7;
+  string email = 8;
+  string birthDate = 9;
+}
